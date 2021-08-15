@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="{% static 'css/web_design.css' %}"/>
+    <script src="{% static 'js/fage_jquery.js' %}"></script>
+    </head>
+<body>
+  <!-- Blog Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <section id="about">
+    <div class="container">
+      <div class="row">
+          <h1>{{id.title}}</h1>
+            <div class="block"></div>
+            <h4>{{id.full_desription}}</h4>
+      </div>
+  </section>
+  <!-- Footer Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <footer>
+    <div class="container">
+      <div class="nine columns">
+        <p>© 2021 LikimiaD</p>
+        <p>The site was written entirely in Django. Visual part using jquery.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

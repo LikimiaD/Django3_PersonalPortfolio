@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="{% static 'css/web_design.css' %}"/>
+    <script src="{% static 'js/script.js' %}"></script>
+    </head>
+<body>
+  <!-- Blog Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <section id="about">
+    <div class="container">
+        {% for blog in blogs %}
+      <div class="row">
+        <a href = "{% url 'blog:detail' blog.id %}"><h1>{{blog.title}}</h1></a> 
+        <h6>{{blog.date}}</h6>
+        <div class="block"></div>
+        <p>{{blog.small_desription}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <!-- Footer Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <footer>
+    <div class="container">
+      <div class="nine columns">
+        <p>© 2021 LikimiaD</p>
+        <p>The site was written entirely in Django. Visual part using jquery.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

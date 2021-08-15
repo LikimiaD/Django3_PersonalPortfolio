@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/web_design.css' %}"/>
+    <script src="{% static 'js/script.js' %}"></script>
+    </head>
+<body>
+    <!-- Header Section
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<header id="header">
+    <div class="main_nav">
+      <div class="container">
+        <div class="mobile-toggle"> <span></span> <span></span> <span></span> </div>
+        <nav>
+          <ul>
+            <li><a class="smoothscroll" href="#header">Home</a></li>
+            <li><a class="smoothscroll" href="#about">About</a></li>
+            <li><a class="smoothscroll" href="#skills">Skills</a></li>
+            <li><a href="{% url 'blog:all_blogs' %}">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="title">
+      <div class="smallsep heading"></div>
+      <h1 class="heading"> LikimiaD Portfolio</h1>
+      <h2 class="heading">Clean & Simple</h2>
+      <a class="smoothscroll" href="#about">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+      </a>
+    </div>
+    <a class="smoothscroll" href="#about">
+      <div class="scroll-down"></div>
+    </a>
+  </header>
+  
+  <!-- About Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <h1>About</h1>
+        <div class="block"></div>
+        <p>In 2019 I started my acquaintance with programming languages, at the moment I can work with JavaScript (React, Redux, Node.JS libraries), Python (SQLalchemy), C++, C#, PostgreSQL. In 2021 I entered the Moscow University NITU MISSIS on "Informatics and Computer Science" with the possibility of obtaining a certificate level CEFR.</p>
+      </div>
+      <div class="row">
+        {% for about in about %}
+        <div class="six columns">
+          <h3><span class="typcn typcn-device-desktop icon"></span>{{about.title}}</h3>
+          <p>{{about.desription}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <section id="projects">
+    <div class="container">
+      <div class="row">
+        <h1> My Projects</h1>
+        <div class="block"></div>
+      </div>
+      <div class="row">
+        {% for project in projects %}
+        <div class="three columns"> <img src="{{ project.image.url }}" width="220" height="220" alt="" />
+          <h4>{{ project.title }}</h4>
+          <p>{{ project.desription }}</p>
+      </div>
+      {% endfor %}    
+    </div>
+  </section>
+  
+  <!-- Skills Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <section id="skills">
+    <div class="container">
+      <h1>My Skills</h1>
+      <div class="block"></div>
+      <div class="row">
+          {% for skill_about in skill_about %}
+        <div class="one-third column">
+          <h3>{{skill_about.title}}</h3>
+          <p>{{skill_about.desription}}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <div class="eight columns">
+          {% for skill_value in skill_value %}
+          <div class="progressBar">
+            <h4>{{skill_value.title}}</h4>
+            <div class="progressBarContainer">
+              <div class="progressBarValue value-{{skill_value.value}}"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="four columns">
+          <p>I am also fond of photography, I really like taking pictures thanks to models in Blender, ZBrush and regular games. My works can be found on ArtStation under my nickname LikimiaD.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <footer>
+    <div class="container">
+      <div class="nine columns">
+        <p>© 2021 LikimiaD</p>
+        <p>The site was written entirely in Django. Visual part using jquery.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
